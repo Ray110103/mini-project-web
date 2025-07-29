@@ -1,15 +1,18 @@
-import EventSlider from "./_components/EventSlider";
+import Navbar from "@/components/Navbar";
+import CategoryEvent from "./_components/CategoryEvent";
+import EventSlider from "./_components/CategoryEvent";
+import Footer from "./_components/Footer";
 import HeroCarousel from "./_components/HeroCarousel";
 import RecentEvent from "./_components/RecentEvent";
 
 const Home = () => {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black text-white py-12 ">
+      <Navbar />
       <HeroCarousel />
-      <section className="container mx-auto px-4 py-12">
-        <EventSlider />
-        <RecentEvent />
-      </section>
+      <CategoryEvent />
+      <RecentEvent />
+      <Footer />
     </main>
   );
 };

@@ -7,7 +7,7 @@ const events = [
     title: "Raisa Ambivert Showcase",
     date: "11 Feb 2026 - 13 Feb 2026",
     price: "Rp 2.000.000",
-    img: "/events/raisa.jpg",
+    img: "/rog.png",
     author: "Daniel Reinhard",
   },
   {
@@ -15,7 +15,7 @@ const events = [
     title: "PLAYOFF IBL GOPAY 2025",
     date: "31 Mar 2026 - 01 Apr 2026",
     price: "Rp 650.000",
-    img: "/events/ibl.jpg",
+    img: "/rog.png",
     author: "Daniel Reinhard",
   },
   // Add more events...
@@ -23,7 +23,7 @@ const events = [
 
 export default function NewestEvents() {
   return (
-    <section className="mt-12">
+    <section className="container mx-auto px-4 py-4">
       <div className="flex justify-between items-center mb-4">
         <h3 className="text-lg font-semibold">Newest Event</h3>
         <Link href="/events" className="text-sm text-orange-400 hover:underline">
