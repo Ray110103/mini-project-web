@@ -1,12 +1,10 @@
 import { Event } from "@/app/types/events";
 import { PageableResponse, PaginationQueries } from "@/app/types/pagination";
 import { axiosInstance } from "@/lib/axios";
-import { useQueries, useQuery } from "@tanstack/react-query";
+import { useQuery } from "@tanstack/react-query";
 
 interface GetEventsQuery extends PaginationQueries {
   search?: string;
-  category?: string;
-  location?: string;
 }
 
 const useGetEvents = (queries?: GetEventsQuery) => {
@@ -15,7 +13,7 @@ const useGetEvents = (queries?: GetEventsQuery) => {
     queryFn: async () => {
       const { data } = await axiosInstance.get<PageableResponse<Event>>(
         "/events",
-        { params: queries }
+        { params: queries },
       );
       return data;
     },

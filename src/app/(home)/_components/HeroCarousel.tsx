@@ -29,7 +29,7 @@ const banners: Banner[] = [
 const HeroCarousel = () => {
   return (
     <section className="w-full container mx-auto px-4 py-4">
-      <Carousel className="w-full">
+      <Carousel className="w-full relative">
         <CarouselContent>
           {banners.map((banner, index) => (
             <CarouselItem key={index}>
@@ -44,7 +44,7 @@ const HeroCarousel = () => {
 
                 {/* Text Overlay */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4 text-white">
-                  <h2 className="text-xl md:text-2xl font-bold">{banner.alt}</h2>
+                  <h2 className="text-xl md:text-2xl font-semibold">{banner.alt}</h2>
                   <p className="text-sm md:text-base">{banner.date}</p>
                   <p className="text-sm md:text-base">{banner.location}</p>
                 </div>
@@ -52,8 +52,11 @@ const HeroCarousel = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="-left-6" />
-        <CarouselNext className="-right-6" />
+        {/* Navigation Buttons */}
+        <div className="absolute top-1/2 transform -translate-y-1/2 left-4 right-4 flex justify-between">
+          <CarouselPrevious className="bg-gray-800 p-2 rounded-full text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Previous slide" />
+          <CarouselNext className="bg-gray-800 p-2 rounded-full text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" aria-label="Next slide" />
+        </div>
       </Carousel>
     </section>
   );
