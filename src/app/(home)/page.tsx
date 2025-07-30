@@ -1,17 +1,16 @@
 import Navbar from "@/components/Navbar";
 import CategoryEvent from "./_components/CategoryEvent";
-import EventSlider from "./_components/CategoryEvent";
+import EventHome from "./_components/EventHome";
 import Footer from "./_components/Footer";
 import HeroCarousel from "./_components/HeroCarousel";
-import RecentEvent from "./_components/RecentEvent";
 
 const Home = () => {
   return (
-    <main className="bg-black text-white py-12 ">
+    <main className="bg-black text-white  ">
       <Navbar />
       <HeroCarousel />
       <CategoryEvent />
-      <RecentEvent />
+      <EventHome />
       <Footer />
     </main>
   );

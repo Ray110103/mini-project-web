@@ -1,28 +1,27 @@
-import { User } from "@/app/types/user";
 import { axiosInstance } from "@/lib/axios";
 import { useMutation } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 
 interface Payload {
   email: string;
-  password: string;
 }
 
-const useLogin = () => {
+const useForgotPassword = () => {
   const router = useRouter();
 
   return useMutation({
     mutationFn: async (payload: Payload) => {
-      const { data } = await axiosInstance.post<User>("/auth/login", payload);
+      const { data } = await axiosInstance.post<{ message: string }>(
+        "/auth/forgot-password",
+        payload
+      );
       return data;
     },
     onSuccess: async (data) => {
-      await signIn("credentials", { ...data, redirect: false });
-      toast.success("sign in success");
-      router.replace("/");
+      toast.success("Send Email Sucees, Please Check Yout Email");
+      router.push("/");
     },
     onError: (error: AxiosError<{ message: string }>) => {
       toast.error(error.response?.data.message ?? "Something went wrong!");
@@ -30,4 +29,4 @@ const useLogin = () => {
   });
 };
 
-export default useLogin;
+export default useForgotPassword;

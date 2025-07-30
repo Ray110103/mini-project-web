@@ -1,9 +1,11 @@
-import React from 'react'
+import EventHome from "../(home)/_components/EventHome";
 
-const page = () => {
+const Events = () => {
   return (
-    <div>page</div>
-  )
-}
+    <div className="container mx-auto px-4">
+      <EventHome />
+    </div>
+  );
+};
 
-export default page
+export default Events;
