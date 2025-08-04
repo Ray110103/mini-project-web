@@ -1,10 +1,12 @@
-import { Event } from "@/app/types/events";
+import { Event } from "@/app/types/event";
 import { PageableResponse, PaginationQueries } from "@/app/types/pagination";
 import { axiosInstance } from "@/lib/axios";
 import { useQuery } from "@tanstack/react-query";
 
 interface GetEventsQuery extends PaginationQueries {
   search?: string;
+  category?: string;
+  location?: string;
 }
 
 const useGetEvents = (queries?: GetEventsQuery) => {

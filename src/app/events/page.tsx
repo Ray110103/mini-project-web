@@ -1,11 +1,15 @@
-import EventHome from "../(home)/_components/EventHome";
+import Navbar from "@/components/Navbar";
+import Events from "../(home)/_components/Events";
+import Footer from "../(home)/_components/Footer";
+import PaginationSection from "@/components/PaginationSection";
+import { CategoryFilter } from "@/components/CategoryFilter";
 
-const Events = () => {
+export default function Page() {
   return (
-    <div className="container mx-auto px-4">
-      <EventHome />
+    <div className="min-h-screen bg-black">
+      <Navbar />
+      <Events />
+      <Footer />
     </div>
   );
-};
-
-export default Events;
+}

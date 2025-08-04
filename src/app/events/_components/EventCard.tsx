@@ -1,30 +1,42 @@
-import { Event } from "@/app/types/events";
+import { Event } from "@/app/types/event";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
-interface BlogCardProps {
-  event: Event;
+interface EventCardProps {
+  event: Event
+ 
 }
 
-const EventCard: FC<BlogCardProps> = ({ event }) => {
+const EventCard: FC<EventCardProps> = ({ event }) => {
+  if (!event || !event.slug) {
+    return <p>Loading...</p>;
+  }
+
   return (
-    <Link href={`/blogs/${event.slug}`}>
-      <Card>
-        <CardHeader>
-          <div className="relative h-[200px] w-full overflow-hidden rounded-lg">
+    <Link href={`/events/${event.slug}`}>
+      <Card className="overflow-hidden rounded-xl pt-0 transition-shadow hover:shadow-md">
+        <CardHeader className="p-0">
+          <div className="relative h-[240px] w-full">
             <Image
               src={event.thumbnail}
-              alt="thumbnail"
-              className="object-cover"
+              alt={event.title}
               fill
+              className="object-cover"
+              priority
             />
           </div>
         </CardHeader>
-        <CardContent>
-          <h2 className="text-lg font-bold">{event.title}</h2>
-          <p className="line-clamp-3">{event.description}</p>
+        <CardContent className="space-y-1.5">
+          <h2 className="text-lg font-semibold text-gray-900">{event.title}</h2>
+          <p className="text-sm text-gray-500">
+            {new Date(event.startDate).toLocaleDateString("id-ID")} –{" "}
+            {new Date(event.endDate).toLocaleDateString("id-ID")}
+          </p>
+          <h3 className="text-lg font-semibold text-gray-900">
+            Rp {event.price.toLocaleString("id-ID")}
+          </h3>
         </CardContent>
       </Card>
     </Link>
