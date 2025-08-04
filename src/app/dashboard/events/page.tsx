@@ -1,5 +1,9 @@
-const DashboardEvents = () => {
-  return <div>DashboardEvents</div>;
-};
+import React from 'react'
 
-export default DashboardEvents;
+const event = () => {
+  return (
+    <div>event</div>
+  )
+}
+
+export default event

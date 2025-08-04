@@ -1,16 +1,18 @@
 import Navbar from "@/components/Navbar";
 import CategoryEvent from "./_components/CategoryEvent";
-import EventHome from "./_components/EventHome";
+import Events from "./_components/Events";
 import Footer from "./_components/Footer";
 import HeroCarousel from "./_components/HeroCarousel";
+import NewestEvent from "./_components/NewestEvent";
 
 const Home = () => {
   return (
-    <main className="bg-black text-white  ">
+    <main className="bg-black text-white">
       <Navbar />
       <HeroCarousel />
       <CategoryEvent />
-      <EventHome />
+      <NewestEvent />
+      <Events />
       <Footer />
     </main>
   );

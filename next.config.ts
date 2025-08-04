@@ -10,10 +10,23 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "en.cf-vanguard.com",
+        hostname: "akcdn.detik.net.id",
+      },
+      {
+        protocol: "https",
+        hostname: "www.bensradio.com",
+      },
+      {
+        protocol: "https",
+        hostname: "en.bushiroad.com",
+      },
+      {
+        protocol: "https",
+        hostname: "img.evbuc.com",
       },
     ],
   },
 };
 
 export default nextConfig;
+
