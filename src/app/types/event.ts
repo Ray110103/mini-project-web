@@ -1,19 +1,28 @@
+import { Ticket } from "./ticket";
+
 export interface Event {
-  id: string; // Using string as ID type, assuming it's a UUID or string type
+  id: string;
   slug: string;
   title: string;
-  description: string; // Updated to string for description text
+  description: string;
   location: string;
-  content: string; // Assuming content is HTML or rich text content
+  content: string;
   category: string;
   thumbnail: string;
-  startDate: string;  // Updated to string for better handling (ISO date format is good for JSON)
-  endDate: string;    // Same as above
-  price: number;
+  startDate: Date;
+  endDate: Date;
   adminId: number;
-  updatedAt: string;  // Date should be ISO string if passed in API
-  createdAt: string;  // Same as above
+  updatedAt: Date;
+  createdAt: Date;
+  price: number;
+  tickets?: Ticket[];
+  admin?: {
+    name: string;
+    pictureProfile?: string;
+  };
 }
+
+
 
 export interface Organizer {
   id: string;  // Using string as ID, can be UUID or another identifier

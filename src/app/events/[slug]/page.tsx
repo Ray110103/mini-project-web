@@ -1,11 +1,8 @@
-import Loading from "@/components/Loading";
-import { Suspense } from "react";
-import EventDetails from "../_components/EventTabs";
-import EventHeader from "../_components/EventHeader";
-import EventTabs from "../_components/EventTabs";
-import EventSample from "../_components/EventSample";
-import Navbar from "@/components/Navbar";
 import Footer from "@/app/(home)/_components/Footer";
+import Loading from "@/components/Loading";
+import Navbar from "@/components/Navbar";
+import { Suspense } from "react";
+import EventDetails from "../_components/EventDetails";
 
 const EventDetail = async ({
   params,
@@ -16,11 +13,9 @@ const EventDetail = async ({
 
   return (
     <main className="bg-black text-white">
-      <Suspense fallback={<Loading />}>
-        <Navbar />
-        <EventSample slug={slug} />
-        <Footer />
-      </Suspense>
+      <Navbar />
+      <EventDetails slug={slug} />
+      <Footer />
     </main>
   );
 };

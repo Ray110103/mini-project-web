@@ -16,8 +16,6 @@ const Events = () => {
 
   return (
     <section className="container mx-auto mt-12 px- md:px-8">
-      
-
       {/* Grid */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {isPending
@@ -39,7 +37,7 @@ const Events = () => {
               return (
                 <Link
                   key={event.id}
-                  href={`/events/${event.slug}`}  // Link to the event detail page using the slug
+                  href={`/events/${event.slug}`} // Link to the event detail page using the slug
                   className="overflow-hidden rounded-xl bg-zinc-900 shadow transition hover:shadow-lg"
                 >
                   <div className="relative aspect-[4/3] w-full">
@@ -51,6 +49,7 @@ const Events = () => {
                       sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   </div>
+                  
                   <div className="space-y-2 p-4">
                     <h4 className="line-clamp-2 text-base font-semibold text-white">
                       {event.title}
@@ -59,9 +58,7 @@ const Events = () => {
                       {new Date(event.startDate).toLocaleDateString()} –{" "}
                       {new Date(event.endDate).toLocaleDateString()}
                     </p>
-                    <p className="text-sm font-medium text-orange-400">
-                      Rp {event.price?.toLocaleString("id-ID")}
-                    </p>
+                    
                   </div>
                 </Link>
               );

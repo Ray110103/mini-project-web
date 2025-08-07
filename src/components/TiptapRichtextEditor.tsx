@@ -30,7 +30,7 @@ const TiptapRichtextEditor: FC<TiptapRichtextEditorProps> = ({
       },
     },
     onUpdate: ({ editor }) => {
-      setFieldValue(name, editor.getHTML());
+      setFieldValue(name, editor.getText());
     },
     onFocus: () => {
       setFieldTouched(name, true);

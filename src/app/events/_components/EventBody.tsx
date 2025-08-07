@@ -14,7 +14,7 @@ const EventBody: FC<EventBodyProps> = async ({ slug }) => {
       <div className="space-y-6">
         <h2 className="text-xl font-bold text-white">About This Event</h2>
         <div className="text-gray-300 leading-relaxed">
-          <Markdown content={event.content} />
+          <Markdown description={event.description} />
         </div>
       </div>
     </div>

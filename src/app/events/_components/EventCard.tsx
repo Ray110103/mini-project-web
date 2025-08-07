@@ -1,46 +1,40 @@
-import { Event } from "@/app/types/event";
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import Image from "next/image";
-import Link from "next/link";
-import { FC } from "react";
+import type { Event } from "@/app/types/event"
+import Image from "next/image"
+import Link from "next/link"
+import type { FC } from "react"
 
 interface EventCardProps {
   event: Event
- 
 }
 
 const EventCard: FC<EventCardProps> = ({ event }) => {
   if (!event || !event.slug) {
-    return <p>Loading...</p>;
+    return <p>Loading...</p>
   }
 
   return (
-    <Link href={`/events/${event.slug}`}>
-      <Card className="overflow-hidden rounded-xl pt-0 transition-shadow hover:shadow-md">
-        <CardHeader className="p-0">
-          <div className="relative h-[240px] w-full">
-            <Image
-              src={event.thumbnail}
-              alt={event.title}
-              fill
-              className="object-cover"
-              priority
-            />
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-1.5">
-          <h2 className="text-lg font-semibold text-gray-900">{event.title}</h2>
-          <p className="text-sm text-gray-500">
-            {new Date(event.startDate).toLocaleDateString("id-ID")} –{" "}
-            {new Date(event.endDate).toLocaleDateString("id-ID")}
-          </p>
-          <h3 className="text-lg font-semibold text-gray-900">
-            Rp {event.price.toLocaleString("id-ID")}
-          </h3>
-        </CardContent>
-      </Card>
-    </Link>
-  );
-};
+    <Link
+      href={`/events/${event.slug}`}
+      className="overflow-hidden rounded-xl bg-zinc-900 shadow transition hover:shadow-lg"
+    >
+      <div className="relative aspect-[4/3] w-full">
+        <Image
+          src={event.thumbnail || "/placeholder.jpg"}
+          alt={event.title}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 33vw"
+        />
+      </div>
 
-export default EventCard;
+      <div className="space-y-2 p-4">
+        <h4 className="line-clamp-2 text-base font-semibold text-white">{event.title}</h4>
+        <p className="truncate text-sm text-sky-400">
+          {new Date(event.startDate).toLocaleDateString()} – {new Date(event.endDate).toLocaleDateString()}
+        </p>
+      </div>
+    </Link>
+  )
+}
+
+export default EventCard

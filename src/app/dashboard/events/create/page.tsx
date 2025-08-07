@@ -5,7 +5,7 @@ import { auth } from "@/auth";
 const DashboardEvents = async () => {
   const session = await auth();
 
-  if (!session?.user) return redirect(`/login`);
+  if (!session?.user) return redirect(`/sign-in`);
 
   return <CreateEvent />;
 };
