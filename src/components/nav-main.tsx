@@ -1,11 +1,10 @@
 "use client";
 
-import { type Icon } from "@tabler/icons-react";
-import { 
-  SidebarGroup, 
-  SidebarGroupContent, 
-  SidebarMenu, 
-  SidebarMenuButton, 
+import {
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarMenu,
+  SidebarMenuButton,
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubItem,
@@ -14,17 +13,14 @@ import {
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import Link from "next/link";
 import { ChevronDown } from 'lucide-react';
+import { NavItem } from "@/app/types/nav";
 
-// Define the NavItem type
-type NavItem = {
-  title: string;
-  url?: string;
-  icon?: Icon;
-  children?: NavItem[]; // Optional nested items for submenus
-};
+// Define the NavMain component's props
+interface NavMainProps {
+  items: NavItem[];
+}
 
-// Define the NavMain component's props to accept an array of NavItem
-export function NavMain({ items }: { items: NavItem[] }) {
+export function NavMain({ items }: NavMainProps) {
   return (
     <SidebarGroup>
       <SidebarGroupContent>
